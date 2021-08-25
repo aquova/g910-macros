@@ -1,0 +1,9 @@
+[Unit]
+Description=Macro support for the Logitech G910 keyboard
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/local/bin/g910-macros
+
+[Install]
+WantedBy=multi-user.target

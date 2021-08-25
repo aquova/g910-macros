@@ -1,0 +1,9 @@
+[package]
+name = "g910-macros"
+version = "0.1.0"
+authors = ["aquova <abrick912@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+uinput = "0.1.3"
+udev = "0.6.2"
