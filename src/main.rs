@@ -57,10 +57,17 @@ fn main() {
 
             loop {
                 let mut buf = [0; PACKET_LEN];
-                let len = f.read(&mut buf).unwrap();
+                let status = f.read(&mut buf);
 
-                if len > 0 {
-                    check_keypress(&buf, &mut udevice);
+                match status {
+                    Ok(len) => {
+                        if len > 0 {
+                            check_keypress(&buf, &mut udevice);
+                        }
+                    },
+                    Err(e) => {
+                        eprintln!("Error reading from hidraw: {}", e);
+                    }
                 }
 
                 sleep(sleep_time);
